@@ -51,5 +51,21 @@ describe("Interface", function () {
         };
         console.info(person.sayHello("Hakim"));
     });
+    it("should support interface type", function () {
+        const domain = {
+            name: "Lukman",
+            id: "1",
+        };
+        console.info(domain);
+    });
+    it("should support type assertions", function () {
+        const person = {
+            name: "Lukman",
+            age: 30,
+        };
+        const person2 = person;
+        // person2.age
+        console.info(person2);
+    });
 });
 export {};
