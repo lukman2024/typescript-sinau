@@ -42,7 +42,7 @@ describe("Function", function () {
     it("should support function overloading", function () {
         function callMe(value) {
             if (typeof value === "string") {
-                return value.toUpperCase;
+                return value.toUpperCase();
             }
             else if (typeof value === "number") {
                 return value * 10;
@@ -50,5 +50,18 @@ describe("Function", function () {
         }
         expect(callMe(10)).toBe(100);
         expect(callMe("Hakim")).toBe("HAKIM");
+    });
+    it("should function as parameter", function () {
+        function sayHello(name, filter) {
+            return `Hello ${filter(name)}`;
+        }
+        function toUpper(name) {
+            return name.toUpperCase();
+        }
+        expect(sayHello("Lukman", toUpper)).toBe("Hello LUKMAN");
+        expect(sayHello("Hakim", function (name) {
+            return name.toUpperCase();
+        })).toBe("Hello HAKIM");
+        expect(sayHello("Hakim", (name) => name.toUpperCase())).toBe("Hello HAKIM");
     });
 });
