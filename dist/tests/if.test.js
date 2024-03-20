@@ -17,4 +17,19 @@ describe("If Statement", function () {
         const say = value >= 75 ? "Congratulation" : "Try Again";
         console.info(say);
     });
+    it("should support switch statement", function () {
+        function sayHello(name) {
+            switch (name) {
+                case "Lukman":
+                    return "Hello Lukman";
+                case "Hakim":
+                    return "Hello Hakim";
+                default:
+                    return "Hello World";
+            }
+        }
+        console.info(sayHello("Lukman"));
+        console.info(sayHello("Hakim"));
+        console.info(sayHello("Hello World"));
+    });
 });
